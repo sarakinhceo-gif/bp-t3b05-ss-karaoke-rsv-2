@@ -1,369 +1,84 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="bpaas-design-system" content="brutalist-avantgarde">
-    <meta name="bpaas-design-theme" content="kr-neon-void">
-    <meta name="description" content="상수 가라오케 예약 꿀팁! 형들이 직접 써보고 알려주는 실전 노하우. 24시 예약, 가격, 시설 비교까지 다 있다.🔥">
-    <meta name="keywords" content="상수 가라오케 예약, 상수 가라오케 블로그, 상수역 노래방 후기, 홍대 가라오케 추천, 합정 가라오케 팁, 가라오케 예약 방법">
-    <meta name="author" content="상수 가라오케 블로그">
-    <link rel="canonical" href="https://t3b05-ss-karaoke-rsv-2.vercel.app/blog/">
-    <!-- Open Graph -->
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="상수 가라오케 예약 꿀팁 5가지 - 형들 놀 준비 됐어?🔥">
-    <meta property="og:description" content="상수역 가라오케 예약 No.1! 24시간 실시간 예약, 합리적인 가격, 최신 시설. 지금 전화 한 통이면 끝!">
-    <meta property="og:url" content="https://t3b05-ss-karaoke-rsv-2.vercel.app/blog/">
-    <meta property="og:image" content="https://t3b05-ss-karaoke-rsv-2.vercel.app/og-image.jpg">
-    <meta property="og:locale" content="ko_KR">
-    <title>상수 가라오케 예약 블로그 | 형들을 위한 꿀팁 대방출</title>
-    <style>
-        /* CSS Reset & Base */
-        *, *::before, *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        html {
-            scroll-behavior: smooth;
-            font-size: 16px;
-        }
-        body {
-            font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif;
-            background: #0a0a0a;
-            color: #f0f0f0;
-            line-height: 1.6;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-        a {
-            color: #ff4d6d;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        a:hover, a:focus {
-            color: #ffb3c6;
-            text-decoration: underline;
-        }
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
-        ul {
-            list-style: none;
-        }
-        /* Brutalist DNA */
-        .brutal-border {
-            border: 3px solid #ff4d6d;
-            box-shadow: 5px 5px 0px #ff4d6d;
-        }
-        .brutal-bg {
-            background: #1a1a2e;
-        }
-        .skew-right {
-            transform: skewX(-5deg);
-        }
-        .skew-left {
-            transform: skewX(5deg);
-        }
-        .rotate-neg {
-            transform: rotate(-2deg);
-        }
-        .rotate-pos {
-            transform: rotate(2deg);
-        }
-        /* Layout helpers */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        .flex {
-            display: flex;
-            flex-wrap: wrap;
-        }
-        .flex-center {
-            justify-content: center;
-            align-items: center;
-        }
-        .grid {
-            display: grid;
-            gap: 20px;
-        }
-        .grid-2 {
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        }
-        .grid-3 {
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        }
-        .section-padding {
-            padding: 60px 0;
-        }
-        /* Navigation */
-        nav {
-            background: #0a0a0a;
-            border-bottom: 2px solid #ff4d6d;
-            padding: 15px 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        nav .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .nav-links {
-            display: flex;
-            gap: 25px;
-        }
-        .nav-links a {
-            font-weight: 700;
-            font-size: 1.1rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        .hamburger-menu {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-        }
-        .hamburger-menu span {
-            width: 25px;
-            height: 3px;
-            background: #ff4d6d;
-            margin: 4px 0;
-            transition: 0.3s;
-        }
-        /* Tel link */
-        .tel-link {
-            background: #ff4d6d;
-            color: #0a0a0a !important;
-            padding: 10px 20px;
-            font-weight: 800;
-            border: 2px solid #ff4d6d;
-            transition: 0.3s;
-        }
-        .tel-link:hover {
-            background: transparent;
-            color: #ff4d6d !important;
-        }
-        /* Hero */
-        .hero {
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
-            padding: 80px 0;
-            text-align: center;
-            border-bottom: 3px solid #ff4d6d;
-        }
-        .hero h1 {
-            font-size: 3rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 20px;
-            text-shadow: 3px 3px 0px #ff4d6d;
-        }
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 30px;
-        }
-        .hero .cta-btn {
-            display: inline-block;
-            background: #ff4d6d;
-            color: #0a0a0a;
-            padding: 15px 40px;
-            font-weight: 800;
-            font-size: 1.2rem;
-            border: 2px solid #ff4d6d;
-            transition: 0.3s;
-        }
-        .hero .cta-btn:hover {
-            background: transparent;
-            color: #ff4d6d;
-        }
-        /* Card */
-        .card {
-            background: #1a1a2e;
-            border: 2px solid #ff4d6d;
-            padding: 30px;
-            margin-bottom: 30px;
-        }
-        .card h2 {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-            color: #ff4d6d;
-        }
-        .card p {
-            margin-bottom: 15px;
-        }
-        .card .meta {
-            font-size: 0.9rem;
-            color: #888;
-            margin-bottom: 10px;
-        }
-        /* Featured image placeholder */
-        .featured-img {
-            background: linear-gradient(45deg, #2a2a4a, #1a1a2e);
-            height: 300px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            color: #ff4d6d;
-            border: 2px dashed #ff4d6d;
-            margin-bottom: 20px;
-        }
-        /* Blog list */
-        .blog-list {
-            margin-top: 40px;
-        }
-        .blog-list .post-preview {
-            display: flex;
-            gap: 20px;
-            align-items: flex-start;
-            padding: 20px 0;
-            border-bottom: 1px solid #333;
-        }
-        .blog-list .post-preview:last-child {
-            border-bottom: none;
-        }
-        .blog-list .post-thumb {
-            width: 150px;
-            height: 100px;
-            background: #2a2a4a;
-            flex-shrink: 0;
-            border: 2px solid #ff4d6d;
-        }
-        .blog-list .post-content h3 {
-            font-size: 1.4rem;
-            margin-bottom: 5px;
-        }
-        .blog-list .post-content .excerpt {
-            color: #aaa;
-        }
-        /* Footer */
-        footer {
-            background: #0a0a0a;
-            border-top: 2px solid #ff4d6d;
-            padding: 40px 0;
-            text-align: center;
-            margin-top: auto;
-        }
-        footer p {
-            margin-bottom: 10px;
-        }
-        footer .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hamburger-menu {
-                display: flex;
-            }
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 60px;
-                left: 0;
-                width: 100%;
-                background: #0a0a0a;
-                border-bottom: 2px solid #ff4d6d;
-                padding: 20px;
-            }
-            .nav-links.active {
-                display: flex;
-            }
-            .hero h1 {
-                font-size: 2rem;
-            }
-            .hero p {
-                font-size: 1rem;
-            }
-            .blog-list .post-preview {
-                flex-direction: column;
-            }
-            .blog-list .post-thumb {
-                width: 100%;
-                height: 150px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>상수 가라오케 예약 블로그 – 현장 담당자를 위한 실전 가이드</title>
+  <meta name="description" content="상수 가라오케 예약 시 현장 담당자가 꼭 알아야 할 체크리스트, 인원 변동 대비 방법, 마무리·정산 팁을 친절하게 정리했습니다.">
+  <meta name="keywords" content="상수 가라오케, 가라오케 예약, 현장 체크리스트, 인원 변동, 정산 팁, 예약 가이드">
+  <link rel="canonical" href="https://sangsu-song-zone.link-hub.org/blog.html">
+  <meta property="og:title" content="상수 가라오케 예약 블로그 – 현장 담당자를 위한 실전 가이드">
+  <meta property="og:description" content="현장 준비 담당자를 위한 연락 창구 통합, 인원 변동 대비, 마무리·정산 사전 계획까지 한눈에 정리한 가이드">
+  <meta property="og:url" content="https://sangsu-song-zone.link-hub.org/blog.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="상수 가라오케 예약 블로그">
+  <meta name="twitter:description" content="상수 가라오케 예약 준비에 필요한 모든 체크리스트와 팁을 한 번에 확인하세요.">
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <!-- Navigation -->
+<body class="n-main-b3mh">
+
+  <!-- Navigation -->
+  <nav class="r-wrap-xyqd">
+    <a href="/home">홈</a>
+    <a href="/service">서비스</a>
+    <a href="/reservation">예약 안내</a>
+    <a href="/blog">블로그</a>
+    <a href="/contact">문의</a>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="q-body-m3ft">
+    <h1>현장 담당자를 위한 상수 가라오케 예약 블로그</h1>
+    <p>가라오케 현장을 직접 운영하거나 담당하고 있다면, 예약 단계부터 마무리 정산까지 체계적인 관리가 필요합니다. 이번 포스팅에서는 실제 현장에서 마주칠 수 있는 다양한 상황을 기준으로 체크리스트와 실전 팁을 정리했습니다.</p>
+    <a href="/reservation/checklist" class="v-btn-tuxv">전체 체크리스트 보기</a>
+  </section>
+
+  <!-- 본문 섹션 1 – 예약 전 체크리스트 -->
+  <section class="q-body-m3ft">
+    <h2>예약 전 체크리스트</h2>
+    <p>가라오케 예약을 받기 전, 현장 담당자는 먼저 기본 정보를 정확히 파악해야 합니다. 예약 일시, 예상 인원, 사용할 기기와 곡 리스트 등을 고객과 사전에 공유하면 당일 혼란을 최소화할 수 있습니다.</p>
+    <p>특히, 예약 시스템에 입력되는 연락 창구(전화, 카카오톡 등)를 통합하고, 담당자가 언제든 업데이트할 수 있도록 클라우드 문서에 정리해 두는 것이 좋습니다. 이렇게 하면 인원 변동이 발생했을 때도 빠르게 대응할 수 있습니다.</p>
+  </section>
+
+  <!-- 본문 섹션 2 – 인원 변동 대비 전략 -->
+  <section class="q-body-m3ft">
+    <h2>인원 변동 대비 전략</h2>
+    <p>예상 인원보다 실제 인원이 늘어나거나 줄어드는 경우는 흔히 발생합니다. 사전에 정의해 둔 “인원 변동 대응 플로우”를 활용하면, 추가 인원에 대한 요금 조정이나 좌석 재배치 등을 즉각 처리할 수 있습니다.</p>
+    <p>예를 들어, 30% 이상 인원 증가가 예상될 경우 추가 마이크와 음향 케이블을 준비해 두고, 반대로 20% 이하 감소가 확인되면 남은 인원을 위한 할인 쿠폰을 제안하는 식으로 유연하게 대처합니다.</p>
+  </section>
+
+  <!-- 본문 섹션 3 – 현장 마무리·정산 팁 -->
+  <section class="q-body-m3ft">
+    <h2>현장 마무리·정산 팁</h2>
+    <p>모든 이용이 끝난 뒤에는 정산을 미리 준비해 두는 것이 중요합니다. 고객이 나가기 전에 이용 시간, 추가 주문(음료·스낵), 인원 변동에 따른 추가 요금을 정확히 확인하고 영수증을 전달하면, 추후 분쟁을 예방할 수 있습니다.</p>
+    <p>정산 전에는 현장 담당자가 사용한 장비와 소모품 리스트를 체크하고, 필요 시 사진을 찍어 기록해 두면 회계 처리 시 증빙 자료로 활용하기 편리합니다. 또한, 정산 데이터는 구글 스프레드시트에 자동으로 업데이트되도록 설정해 두면 월간 보고서 작성이 한결 수월합니다.</p>
+  </section>
+
+  <!-- FAQ 카드 섹션 -->
+  <section class="q-body-m3ft">
+    <h2>자주 묻는 질문(FAQ)</h2>
+    <div class="q-card-nijn">
+      <h3>Q. 예약 취소는 언제까지 가능한가요?</h3>
+      <p>A. 최소 24시간 전까지는 무조건 무료 취소가 가능하며, 그 이하 시간대는 30% 위약금이 부과됩니다.</p>
+    </div>
+    <div class="q-card-nijn">
+      <h3>Q. 인원 변동은 어떻게 알려야 하나요?</h3>
+      <p>A. 카카오톡 오픈채팅 또는 전화로 변동 인원을 알려주시면, 실시간으로 요금과 좌석을 조정해 드립니다.</p>
+    </div>
+    <div class="q-card-nijn">
+      <h3>Q. 결제는 어떤 방식으로 할 수 있나요?</h3>
+      <p>A. 현장 카드 결제, 현금, 그리고 모바일 결제(Payco, Toss) 모두 지원합니다. 사전 결제 시 할인 혜택을 제공하고 있습니다.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="r-wrap-xyqd">
+    <p>&copy; 2026 상수 가라오케·모든 권리 보유</p>
     <nav>
-        <div class="container">
-            <a href="/" style="font-size: 1.5rem; font-weight: 900; color: #ff4d6d; text-decoration: none;">상수🎤</a>
-            <div class="hamburger-menu" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <div class="nav-links" id="navLinks">
-                <a href="/">홈</a>
-                <a href="/about">소개</a>
-                <a href="/pricing">가격</a>
-                <a href="/gallery">갤러리</a>
-                <a href="/blog">블로그</a>
-                <a href="/contact">문의</a>
-                <a href="tel:0507-1234-5678" class="tel-link">📞 0507-1234-5678</a>
-            </div>
-        </div>
+      <a href="/privacy">개인정보 처리방침</a> |
+      <a href="/terms">이용약관</a>
     </nav>
+  </footer>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <h1>형들, 상수 가라오케 꿀팁 대방출!</h1>
-            <p>24시 예약부터 숨은 맛집까지 — 내가 직접 겪고 써보는 찐 후기. 놀 준비 됐어? 🔥</p>
-            <a href="#blogpost" class="cta-btn">👇 오늘의 꿀팁 보기</a>
-        </div>
-    </section>
-
-    <!-- Blog Content -->
-    <section class="section-padding" id="blogpost">
-        <div class="container">
-            <article class="card brutality-border rotate-neg">
-                <div class="meta">📅 2025.03.15 | ✍️ 상수형</div>
-                <h2>상수역 가라오케 예약, 이렇게 하면 진짜 편함 (feat. 3년차 단골)</h2>
-                <div class="featured-img">
-                    🎤 상수 가라오케 예약 꿀팁
-                </div>
-                <p>
-                    야, 형. 상수역에서 친구들이랑 갑자기 놀고 싶을 때 있지? 근데 막상 가보면 자리 없고, 기다리다가 밤샘… 
-                    나도 예전에 그런 적 많았어. 그래서 오늘은 <strong>상수 가라오케 예약</strong>의 모든 걸 알려줄게.
-                </p>
-                <p>
-                    첫째, <strong>24시 예약 시스템 꼭 활용해!</strong> 요즘 상수 가라오케는 대부분 24시간 실시간 예약이 가능해. 
-                    네이버나 전화로 미리 잡아놓으면 현장에서 기다릴 필요 없어. 내가 자주 가는 곳은 전화 한 통이면 끝! 
-                    번호는 위에 텔 링크 걸어놨으니 참고해.
-                </p>
-                <p>
-                    둘째, <strong>가격 비교는 선택이 아니라 필수</strong>야. 홍대랑 합정 쪽이랑 같은 상수권인데도 가격 차이 좀 나더라고. 
-                    내 경험상 주중 낮 시간에 가면 반값 할인하는 곳도 있어! 
-                    자세한 가격표는 <a href="/pricing">여기</a>에서 확인해봐.
-                </p>
-                <p>
-                    셋째, <strong>시설은 꼭 사진으로 미리 봐!</strong> 나는 한 번 인테리어만 보고 예약했다가 마이크 상태가 별로였던 적이 있어. 
-                    요즘 상수 가라오케들은 최신 시설로 리모델링한 곳이 많으니 갤러리 페이지를 꼭 확인해. 
-                    <a href="/gallery">👉 갤러리 보기</a>
-                </p>
-                <p>
-                    마지막으로, <strong>내 꿀팁 하나 더 알려줄게.</strong> 예약할 때 "코너 룸"이라고 요청하면 더 프라이빗하게 즐길 수 있어. 
-                    발렌타인데이, 연말 모임, 생일파티 등 특별한 날에 진짜 좋아. 주말은 예약이 빨리 차니까 최소 3일 전에는 전화해!
-                </p>
-                <p>
-                    자, 이제 형들도 준비 끝났지? <strong>상수 가라오케 예약</strong>은 바로 전화 한 통이면 끝! 
-                    우리 가게 아니더라도 이 팁 쓰면 어디서든 즐길 수 있어. 
-                    다음 블로그에서는 상수역 맛집 리스트 들고 올게. 기대해! 🔥
-                </p>
-                <div style="margin-top: 20px; padding: 15px; background: #2a2a4a; border-left:
 </body>
 </html>

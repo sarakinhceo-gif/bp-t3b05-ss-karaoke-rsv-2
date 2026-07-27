@@ -1,187 +1,108 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="bpaas-design-system" content="brutalist-avantgarde">
-    <meta name="bpaas-design-theme" content="kr-neon-void">
-    <meta name="description" content="상수 가라오케 예약 정보 한눈에! 위치, 가격, 영업시간, 시설까지 다 알려줌. 24시 예약 가능, 형들 여기 다 있어!">
-    <meta name="keywords" content="상수 가라오케, 상수역 가라오케, 상수 가라오케 예약, 홍대 가라오케, 합정 가라오케, 24시 가라오케, 노래방, 상수 코인노래방, 가라오케 정보">
-    <meta name="author" content="상수 가라오케">
-    <link rel="canonical" href="https://t3b05-ss-karaoke-rsv-2.vercel.app/info">
-    <title>상수 가라오케 예약 - 정보 | 위치·가격·시설 완벽정리</title>
-    <!-- Open Graph -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="상수 가라오케 예약 - 정보 | 위치·가격·시설 완벽정리">
-    <meta property="og:description" content="상수 가라오케 예약 정보 한눈에! 위치, 가격, 영업시간, 시설까지 다 알려줌. 24시 예약 가능, 형들 여기 다 있어!">
-    <meta property="og:url" content="https://t3b48-ss-karaoke-rsv-2.vercel.app/info">
-    <meta property="og:image" content="https://t3b48-ss-karaoke-rsv-2.vercel.app/og-info.jpg">
-    <meta property="og:locale" content="ko_KR">
-    <style>
-        /* CSS Reset & Base */
-        *, *::before, *::after { margin:0;padding:0;box-sizing:border-box; }
-        html { font-size:16px;scroll-behavior:smooth; }
-        body { font-family:'Pretendard','Noto Sans KR',sans-serif;background:#0a0a0a;color:#f0f0f0;line-height:1.6;overflow-x:hidden; }
-        a { color:inherit;text-decoration:none; }
-        a:hover, a:focus { opacity:0.8; }
-        img { max-width:100%;height:auto;display:block; }
-        ul { list-style:none; }
-        /* Brutalist DNA */
-        .brutal-border { border:3px solid #00ffff;box-shadow:6px 6px 0 #00ffff;transition:all 0.2s; }
-        .brutal-border:hover { box-shadow:3px 3px 0 #00ffff;transform:translate(2px,2px); }
-        .brutal-bg { background:#1a1a2e; }
-        .skew-right { transform:skewX(-5deg); }
-        .skew-left { transform:skewX(5deg); }
-        .rotate-neg { transform:rotate(-2deg); }
-        .rotate-pos { transform:rotate(2deg); }
-        /* Layout helpers */
-        .container { max-width:1200px;margin:0 auto;padding:0 20px; }
-        .flex { display:flex;flex-wrap:wrap; }
-        .flex-center { justify-content:center;align-items:center; }
-        .flex-between { justify-content:space-between; }
-        .grid-2 { display:grid;grid-template-columns:1fr 1fr;gap:24px; }
-        .grid-3 { display:grid;grid-template-columns:repeat(3,1fr);gap:20px; }
-        .gap-1 { gap:16px; }
-        .gap-2 { gap:24px; }
-        .gap-3 { gap:32px; }
-        .mt-1 { margin-top:16px; }
-        .mt-2 { margin-top:24px; }
-        .mt-3 { margin-top:32px; }
-        .mb-1 { margin-bottom:16px; }
-        .mb-2 { margin-bottom:24px; }
-        .mb-3 { margin-bottom:32px; }
-        .p-1 { padding:16px; }
-        .p-2 { padding:24px; }
-        .p-3 { padding:32px; }
-        .text-center { text-align:center; }
-        .text-neon { color:#00ffff;text-shadow:0 0 10px #00ffff; }
-        .text-lg { font-size:1.5rem;font-weight:700; }
-        .text-xl { font-size:2rem;font-weight:800; }
-        .text-2xl { font-size:2.5rem;font-weight:900; }
-        .bg-dark { background:#111; }
-        .bg-black { background:#000; }
-        /* Navigation */
-        nav { background:#000;padding:16px 0;border-bottom:3px solid #00ffff;position:sticky;top:0;z-index:100; }
-        .nav-container { max-width:1200px;margin:0 auto;padding:0 20px;display:flex;justify-content:space-between;align-items:center; }
-        .logo { font-size:1.5rem;font-weight:900;color:#00ffff;text-transform:uppercase;letter-spacing:2px; }
-        .logo span { color:#ff00ff; }
-        .nav-links { display:flex;gap:32px; }
-        .nav-links a { font-weight:700;font-size:1.1rem;padding:8px 0;border-bottom:2px solid transparent;transition:0.2s; }
-        .nav-links a:hover, .nav-links a.active { border-bottom-color:#00ffff;color:#00ffff; }
-        .hamburger { display:none;flex-direction:column;cursor:pointer;gap:5px; }
-        .hamburger span { width:28px;height:3px;background:#00ffff;border-radius:2px; }
-        /* Hero */
-        .hero { padding:80px 0 60px;background:linear-gradient(135deg,#0a0a0a 0%,#1a0033 100%);position:relative;overflow:hidden; }
-        .hero::after { content:'';position:absolute;top:-20%;left:-10%;width:120%;height:140%;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Ccircle cx='200' cy='200' r='1' fill='%2300ffff' opacity='0.2'/%3E%3C/svg%3E") repeat;pointer-events:none; }
-        .hero h1 { font-size:3rem;font-weight:900;line-height:1.2;margin-bottom:16px;text-shadow:0 0 20px #00ffff; }
-        .hero p { font-size:1.2rem;max-width:600px;margin:0 auto; }
-        /* Info cards */
-        .info-card { background:#1a1a2e;border:3px solid #00ffff;padding:24px;margin-bottom:20px;transition:0.2s; }
-        .info-card:hover { box-shadow:0 0 20px #00ffff44; }
-        .info-card h3 { font-size:1.5rem;margin-bottom:12px;color:#00ffff;border-left:4px solid #ff00ff;padding-left:12px; }
-        .info-card ul li { padding:6px 0;border-bottom:1px solid #333; }
-        .info-card ul li:last-child { border-bottom:none; }
-        /* FAQ */
-        .faq-item { background:#111;border:2px solid #333;padding:16px 20px;margin-bottom:12px;cursor:pointer; }
-        .faq-item summary { font-weight:700;font-size:1.1rem;display:flex;justify-content:space-between;align-items:center; }
-        .faq-item[open] summary { color:#00ffff; }
-        .faq-item p { margin-top:12px;padding-top:12px;border-top:1px solid #333;color:#ccc; }
-        /* Footer */
-        footer { background:#000;padding:40px 0;border-top:3px solid #00ffff;margin-top:60px; }
-        /* Responsive */
-        @media (max-width:768px) {
-            .hamburger { display:flex; }
-            .nav-links { display:none;position:absolute;top:100%;left:0;width:100%;background:#000;flex-direction:column;padding:20px;gap:16px;border-bottom:3px solid #00ffff; }
-            .nav-links.open { display:flex; }
-            .grid-2, .grid-3 { grid-template-columns:1fr; }
-            .hero h1 { font-size:2rem; }
-            .hero p { font-size:1rem; }
-            .text-xl { font-size:1.5rem; }
-            .text-2xl { font-size:1.8rem; }
-        }
-        .tel-link { color:#ff00ff;font-weight:700;font-size:1.3rem;text-decoration:underline;text-underline-offset:4px; }
-        .tel-link:hover { color:#00ffff; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>상수 가라오케 예약 – 상세 정보</title>
+  <meta name="description" content="상수 가라오케 이용 전 꼭 알아야 할 상세 정보를 제공합니다. 인원·시간·목적별 체크리스트와 현장에서 바로 적용 가능한 팁을 한눈에 정리했습니다.">
+  <meta name="keywords" content="상수 가라오케, 가라오케 정보, 상수 노래방 이용, 가라오케 예약 팁, 가라오케 체크리스트">
+  <link rel="canonical" href="https://sangsu-song-zone.link-hub.org/about.html">
+  <meta property="og:title" content="상수 가라오케 예약 – 상세 정보">
+  <meta property="og:description" content="인원·시간·목적에 맞춘 가라오케 이용 팁과 체크리스트를 확인하고, 현명한 예약을 준비하세요.">
+  <meta property="og:url" content="https://sangsu-song-zone.link-hub.org/about.html">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <nav>
-        <div class="nav-container">
-            <div class="logo">상수<span>KARAOKE</span></div>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="/">홈</a></li>
-                <li><a href="/info" class="active">정보</a></li>
-                <li><a href="/reservation">예약</a></li>
-                <li><a href="/review">후기</a></li>
-                <li><a href="tel:0507-1414-5252" class="tel-link">전화예약</a></li>
-            </ul>
-            <div class="hamburger" id="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')">
-                <span></span><span></span><span></span>
-            </div>
-        </div>
+  <header class="m-foot-s706">
+    <h1 class="drop-cap">상수 가라오케 예약</h1>
+    <nav class="nav-present">
+      <ul>
+        <li><a href="/index.html">홈</a></li>
+        <li><a href="/guide.html">예약 가이드</a></li>
+        <li><a href="/info.html">정보</a></li>
+        <li><a href="/faq.html">FAQ</a></li>
+        <li><a href="/contact.html">연락처</a></li>
+      </ul>
+      <div class="hamburger-menu"></div>
     </nav>
+  </header>
 
-    <section class="hero text-center">
-        <div class="container">
-            <h1 class="text-2xl text-neon brutal-border" style="display:inline-block;padding:8px 24px;">📍 상수 가라오케<br>완벽 정보</h1>
-            <p class="mt-2">형들, 우리 가게 모든 걸 까발려줌! <br>위치, 가격, 시설, 꿀팁까지 다 있다니까? 🔥</p>
-        </div>
+  <main>
+    <article class="r-box-lfqz">
+      <h2>🛎️ 왜 상세 정보가 중요한가?</h2>
+      <p>가라오케는 단순히 노래만 부르는 공간이 아니라, 인원 규모와 시간대, 목적에 따라 완전히 다른 분위기와 서비스가 제공됩니다. 사전에 어떤 요소를 체크했는지에 따라 첫 인상과 전체 만족도가 크게 달라지죠. 이번 섹션에서는 그런 핵심 요소들을 하나씩 짚어보며, 실제 현장에서 바로 활용할 수 있는 체크리스트를 소개합니다.</p>
+      <p>예를 들어, 4명 정도의 소규모 모임과 20명 이상의 대규모 파티는 방 선택부터 음향 설정, 조명 분위기까지 전혀 다른 준비가 필요합니다. 또, 주중 저녁과 주말 밤 시간대는 인기 방이 빠르게 마감되기 때문에 사전 예약 시점도 달라야 합니다. 이런 차이점을 미리 이해하고 있으면, 예약 과정에서 발생할 수 있는 불편을 최소화하고 원하는 경험을 정확히 얻을 수 있습니다.</p>
+    </article>
+
+    <section class="t-card-uilh">
+      <h2>👥 인원별 이용 포인트</h2>
+      <h3>1️⃣ 2~4명 소규모 그룹</h3>
+      <p>소규모 그룹은 프라이버시가 가장 큰 장점입니다. 방음이 좋은 방을 선택하고, 좌석 배치를 자유롭게 조정할 수 있는 옵션을 우선 고려하세요. 또한, 개인 마이크와 소형 스피커가 충분히 제공되는지를 확인하는 것이 좋습니다.</p>
+      <p>음악 장르는 크게 구분되지 않지만, 개인별 취향이 다를 경우 곡 검색이 원활한 단말기 모델을 선택하면 모두가 만족할 수 있습니다. 예약 시 ‘소규모 프라이빗’ 옵션을 요청하면 직원이 더욱 세심하게 배려해 줍니다.</p>
+
+      <h3>2️⃣ 5~12명 중간 규모</h3>
+      <p>중간 규모는 방 크기와 좌석 배치가 핵심입니다. 넓은 방을 선택하면 이동이 편하고, 그룹 전체가 한 화면을 공유하기에 좋습니다. 조명은 다채로운 색상을 선택할 수 있는 모델을 고르면 파티 분위기를 한층 끌어올릴 수 있습니다.</p>
+      <p>이때는 음향 시스템이 방 전체에 고르게 퍼지는지를 확인하고, 마이크가 충분히 제공되는지 체크하세요. 또한, 곡 선택 시 ‘플레이리스트 공유’ 기능이 있는 방을 선택하면 모두가 원하는 곡을 미리 선정해 놓을 수 있어 시간 낭비를 방지합니다.</p>
+
+      <h3>3️⃣ 13명 이상 대규모 파티</h3>
+      <p>대규모 파티는 대형 룸과 스테이지 시설이 있는 방을 선택하는 것이 필수입니다. 조명과 사운드 시스템이 프로 수준으로 제공되는지를 확인하고, 마이크와 스피커 수가 충분히 확보되는지 점검해야 합니다.</p>
+      <p>예약 전 ‘특별 행사’ 혹은 ‘기업 행사’ 옵션을 문의하면, 전용 담당자가 별도 음향 테스트와 조명 연출을 도와줍니다. 또한, 음식·음료 서비스를 동시에 주문할 수 있는 ‘패키지 예약’을 활용하면 현장에서 별도 주문 번거로움을 줄일 수 있습니다.</p>
     </section>
 
-    <main class="container mt-3 mb-3">
-        <!-- 기본 정보 카드 2열 -->
-        <div class="grid-2 gap-2">
-            <div class="info-card brutal-border">
-                <h3>⏰ 영업시간 & 예약</h3>
-                <ul>
-                    <li><strong>매일:</strong> 24시간 연중무휴</li>
-                    <li><strong>예약방법:</strong> 전화 0507-1414-5252</li>
-                    <li><strong>카톡예약:</strong> @sangsu_karaoke</li>
-                    <li><strong>바로예약:</strong> <a href="/reservation" style="color:#00ffff;text-decoration:underline;">여기 클릭!</a></li>
-                    <li><strong>마감시간:</strong> 없음. 새벽 6시에도 열려있음</li>
-                </ul>
-            </div>
-            <div class="info-card brutal-border">
-                <h3>📍 위치 & 오시는 길</h3>
-                <ul>
-                    <li><strong>주소:</strong> 서울 마포구 상수동 123-4 (상수역 2번출구 도보 3분)</li>
-                    <li><strong>주차:</strong> 건물 지하주차장 2시간 무료</li>
-                    <li><strong>대중교통:</strong> 상수역 2번 출구 직진 → 골목 2개째 우회전 → 우리 건물</li>
-                    <li><strong>찾아오는 팁:</strong> 스타벅스 건너편 골목 들어오면 바로 보임!</li>
-                </ul>
-            </div>
-        </div>
+    <section class="t-card-uilh">
+      <h2>⏰ 시간대별 체크리스트</h2>
+      <h3>오전·점심 (10:00‑14:00)</h3>
+      <p>이 시간대는 비교적 한가해서 가격 할인이 적용되는 경우가 많습니다. 사전 예약 시 ‘조기 할인’ 옵션을 확인하고, 방 사용 시간을 2시간 이하로 제한하면 추가 할인을 받을 수 있습니다.</p>
+      <p>주변 카페와 연계된 쿠폰을 제공하는 지점도 있으니, 예약 전 홈페이지 혹은 전화 문의로 확인해 보세요.</p>
 
-        <!-- 가격 & 시설 -->
-        <div class="grid-2 gap-2 mt-2">
-            <div class="info-card brutal-border">
-                <h3>💸 가격 정리</h3>
-                <ul>
-                    <li><strong>1시간:</strong> 25,000원 (주중) / 30,000원 (주말)</li>
-                    <li><strong>2시간:</strong> 40,000원 (주중) / 48,000원 (주말)</li>
-                    <li><strong>3시간:</strong> 55,000원 (주중) / 65,000원 (주말)</li>
-                    <li><strong>심야할인 (23시-06시):</strong> 1시간 20,000원</li>
-                    <li><strong>음료 무료제공:</strong> 콜라, 사이다, 생수 무한리필</li>
-                </ul>
-            </div>
-            <div class="info-card brutal-border">
-                <h3>🛠 시설 & 서비스</h3>
-                <ul>
-                    <li>최신 TJ미디어 노래방 (9만곡 이상)</li>
-                    <li>고급 JBL 스피커 + 유선/무선 마이크</li>
-                    <li>방음 완벽 – 밤늦게도 소리 지르기 좋음</li>
-                    <li>룸별 55인치 TV + LED 조명</li>
-                    <li>담배 가능 (전용 흡연실)</li>
-                    <li>커플룸, 단체룸 (최대 10인)</li>
-                </ul>
-            </div>
-        </div>
+      <h3>저녁·밤 (18:00‑23:00)</h3>
+      <p>가장 인기 있는 피크 타임이므로, 예약 가능 방이 제한됩니다. 최소 3일 전 예약을 권장하고, 예약 시 ‘예약 보증금’이 필요할 수 있습니다. 또한, 인기 방을 놓치지 않으려면 ‘실시간 대기 알림’ 서비스를 신청하면 방이 비게 될 때 바로 알림을 받을 수 있습니다.</p>
+      <p>음악 장르가 다양해지는 시간대이니, 방 안에서 여러 장르를 동시에 즐길 수 있는 ‘멀티 장르 모드’가 제공되는지 확인하는 것이 좋습니다.</p>
+    </section>
 
-        <!-- 추가 꿀팁 -->
-        <div class="info-card brutal-border mt-2" style="background:#1a0033;">
-            <h3>🔥 형들만을 위한 꿀팁 3가지</h3>
-            <ul>
-                <li><strong>1️⃣ 예약은 전화가 제일 빨라</strong> – 온라인 예약도 되지만, 전화 한 통이면 바로 확정!</li>
-                <li><strong>2️⃣ 새벽 2시 이후</strong> – 손님 적어서 노래방 거의 혼자 쓸 수 있음. 스트레스 해소 원탑!</li>
-                <li><strong>3️⃣ 주차는 건물 지하</strong> – 2시간
+    <section class="t-card-uilh">
+      <h2>🎯 목적별 선택 기준</h2>
+      <h3>친구와 캐주얼 파티</h3>
+      <p>친구와의 편안한 파티라면 방 안 분위기와 조명 효과가 중요합니다. 컬러풀한 LED 조명과 자동 노래 추천 기능이 있는 방을 선택하면 분위기를 손쉽게 연출할 수 있습니다.</p>
+      <p>또, 스낵 바와 음료 자동 정렬이 가능한 ‘셀프 바’ 옵션이 있는 지점을 고르면, 직접 주문 없이 다양한 안주를 즐길 수 있습니다.</p>
+
+      <h3>기업 회식·팀 빌딩</h3>
+      <p>기업 회식은 프라이버시와 서비스 품질이 핵심입니다. 전용 라운지와 대형 스크린, 고음질 마이크가 구비된 회의실형 방을 선택하고, 사전 메뉴와 음료를 미리 정해두면 회식 진행이 순조롭습니다.</p>
+      <p>또한, 사전 예약 시 ‘맞춤 플래시 할인’ 및 ‘프로모션 포인트 적립’ 혜택을 받을 수 있는지 문의해 보세요.</p>
+
+      <h3>생일·기념일 특별 이벤트</h3>
+      <p>기념일에는 특별한 꾸밈이 필요합니다. 방 안에 촛불, 풍선, 스페셜 배경화면을 제공하는 ‘디럭스 패키지’를 선택하면 깜짝 연출을 손쉽게 만들 수 있습니다.</p>
+      <p>예약 시 ‘기념일 축하 카드’와 사진 촬영 서비스가 포함된 옵션을 요청하면, 추억을 사진으로 남기기에도 편리합니다.</p>
+    </section>
+
+    <section class="t-card-uilh">
+      <h2>❓ 자주 묻는 질문 (FAQ)</h2>
+      <h3>Q1. 사전 예약 없이 바로 이용할 수 있나요?</h3>
+      <p>가능은 하지만, 특히 피크 타임에는 원하는 방을 잡기 어려울 수 있습니다. 즉시 이용을 원한다면 ‘당일 현장 대기’ 서비스를 이용하거나, 비인기 시간대(오전·점심)를 선택하는 것이 안전합니다.</p>
+
+      <h3>Q2. 예약 취소 및 변경은 어떻게 하나요?</h3>
+      <p>예약 24시간 전까지는 무료 취소가 가능하고, 그 이후에는 일정 비율의 취소 수수료가 부과됩니다. 변경은 가능한 방이 있을 경우에만 즉시 반영되며, 온라인 마이 페이지에서 간편하게 진행할 수 있습니다.</p>
+
+      <h3>Q3. 음식·음료는 어떻게 주문하나요?</h3>
+      <p>대부분의 지점은 방 안 태블릿을 통해 실시간으로 주문이 가능하며, 현장 직원이 바로 배달해 줍니다. 미리 ‘패키지 메뉴’를 선택해 두면 주문 대기 시간을 최소화할 수 있습니다.</p>
+    </section>
+
+    <aside class="v-card-uwpr">
+      <h2>📌 체크리스트 요약</h2>
+      <ul>
+        <li>인원 규모에 맞는 방 크기와 음향·조명 확인</li>
+        <li>시간대별 할인·예약 보증금 정책 파악</li>
+        <li>목적에 맞는 특수 옵션(디럭스, 기업 회식, 파티 패키지) 선택</li>
+        <li>예약 전 FAQ 확인으로 사전 불안을 해소</li>
+        <li>현장 대기·실시간 알림 서비스 활용</li>
+      </ul>
+      <a href="/guide.html">예약 가이드 전체 보기 →</a>
+    </aside>
+  </main>
+
+  <footer class="m-foot-s706">
+    <p>© 2026 상수 가라오케 예약 정보. All rights reserved.</p>
+  </footer>
 </body>
 </html>
